@@ -163,7 +163,7 @@ document.addEventListener('click', (el) => {
 
 const header = document.querySelector('header');
 const bottomNav = document.querySelector('.bottom-nav');
-const topNav = document.querySelector('.top-nav');
+const topNav = document.querySelector('.top-nav-head');
 
 
 let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -187,7 +187,7 @@ const stickNavs = () => {
   topNav.style.position = 'fixed';
   topNav.style.top = '0';
   topNav.style.backgroundColor = 'var(--dark)';
-
+  topNav.style.height = '80px';
   isNavSticky = true;
 }
 
@@ -200,7 +200,6 @@ const returnNav = () => {
   topNav.style.backgroundColor = 'transparent';
   topNav.style.height = '70px';
   topNav.style.position = 'relative';
-
   isNavSticky = false;
 }
 
@@ -214,13 +213,12 @@ const handleScroll = () => {
     console.log(`Scroll Direction: ${scrollDirection}`);
 
     if(scrollDirection === 'up') {
-      bottomNav.style.transform = 'translateY(100px)';
+      bottomNav.style.transform = 'translateY(80px)';
       topNav.style.transform = 'translateY(0)';
     }
 
     else {
       bottomNav.style.transform = 'translateY(0)';
-      topNav.style.height = '100px';
       topNav.style.transform = 'translateY(-70px)';
     }
 
