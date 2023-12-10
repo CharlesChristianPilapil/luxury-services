@@ -762,6 +762,7 @@ header {
     color: var(--medium-dark);
 }
 
+
 footer {
     padding: 1rem 2rem;
     background-color: var(--dark);
@@ -955,6 +956,67 @@ footer .luxury-presence:after {
 
 footer .luxury-presence:hover:after {
     width: 0;
+}
+
+.benefits-nav {
+    position: fixed;
+    background-color: rgb(161, 140, 94, .7);
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    padding: 10rem 2rem;
+    transition: .2s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.benefits-nav.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.benefits-wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+    flex-direction: column;
+    background-color: whitesmoke;
+    padding: 2rem;
+    position: relative;
+}
+
+.benefits-nav p {
+    font-family: var(--titillium);
+    font-size: 1.5rem;
+    margin-top: 3rem;
+}
+
+.benefits-nav ul {
+    margin-top: 1rem;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    font-family: var(--montserrat);
+    color: var(--medium-dark);
+}
+
+.benefits-nav ul li::before {
+    content: "-";
+    text-indent: -5px;
+}
+
+.benefits-nav #close-benefits {
+    font-size: 2rem;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    cursor: pointer;
+    color: var(--dark);
+    transition: .2s ease-in-out;
+}
+
+.benefits-nav #close-benefits:hover {
+    color: var(--medium-dark);
 }
 
 
@@ -1238,11 +1300,24 @@ footer .luxury-presence:hover:after {
         display: block;
         cursor: pointer;
         width: fit-content;
+        position: relative;
         transition: .2s ease-in-out;
     }
 
-    .box-text span p .benefits-lg:hover {
-        color: var(--medium-dark);
+    .decor-guidance .benefits-lg:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--dark);
+        display: block;
+        transition: .2s ease-in-out;
+    }
+
+    .decor-guidance .benefits-lg:hover:after {
+        width: 0%;
     }
 
     .box .mobile-head {

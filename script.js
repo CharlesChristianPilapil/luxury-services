@@ -43,6 +43,30 @@ const navOverlay = document.querySelector('.nav-overlay');
 
 const navContact = document.querySelector('.nav-contact')
 
+// benefits
+
+const benefitNav = document.querySelector('.benefits-nav');
+const closeBenefits = document.querySelector('#close-benefits');
+const openBenefits = document.querySelector('.benefits-lg');
+
+openBenefits.addEventListener('click', () => {
+  benefitNav.classList.add('active');
+  document.body.classList.toggle('no-scroll');
+});
+
+closeBenefits.addEventListener('click', () => {
+  benefitNav.classList.remove('active');
+  document.body.classList.toggle('no-scroll');
+});
+
+document.addEventListener('click', (el) => {
+  if(el.target == benefitNav && benefitNav.classList.contains('active')) {
+    document.body.classList.toggle('no-scroll');
+    benefitNav.classList.remove('active');
+  }
+});
+
+
 
 navContact.addEventListener('click', () => {
   openContactFrmNav();
