@@ -1375,7 +1375,7 @@ footer .luxury-presence:hover:after {
     .box-text span ul {
         max-height: 0;
         opacity: 0;
-        visibility: 0;
+        visibility: hidden;
     }
 
     .box-text span p span {
