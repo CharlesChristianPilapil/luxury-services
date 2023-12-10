@@ -209,9 +209,6 @@ const handleScroll = () => {
     const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
     const scrollDirection = currentScrollTop > lastScrollTop ? 'down' : 'up';
 
-    // Your logic based on scroll direction here
-    console.log(`Scroll Direction: ${scrollDirection}`);
-
     if(scrollDirection === 'up') {
       bottomNav.style.transform = 'translateY(80px)';
       topNav.style.transform = 'translateY(0)';
@@ -236,3 +233,23 @@ headerObserver.observe(header);
 
 // Add event listener for scroll
 window.addEventListener('scroll', handleScroll);
+
+
+
+// animation on scroll 
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+
+    if(entry.isIntersecting) {
+      entry.target.classList.add('animate');
+    }
+
+    else {
+      entry.target.classList.remove('animate');
+    }
+
+  });
+});
+
+const lazyLoad = document.querySelectorAll('.lazy-load');
+lazyLoad.forEach(el => observer.observe(el))

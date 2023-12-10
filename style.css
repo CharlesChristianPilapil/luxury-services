@@ -45,6 +45,19 @@ header {
     background-image: url(project/hero.jpg);
 }
 
+.start .service {
+    position: absolute;
+    /* width: 100%; */
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light);
+    font-size: 2rem;
+    width: 100%;
+    margin: 0 auto;
+}
+
 .overlay {
     position: absolute;
     top: 0;
@@ -1261,6 +1274,24 @@ footer .luxury-presence:hover:after {
 }
 
 
+/* animation */
+
+.start .lazy-load {
+    opacity: 0;
+    filter: blur(3px);
+    transition: 1s ease-in-out;
+}
+
+.start .lazy-load.animate {
+    filter: blur(0);
+    opacity: 1;
+}
+
+/* @media (prefers-reduced-motion) {
+    .start .lazy-load {
+        transition: none;
+    }
+} */
 
 @media (min-width: 540px) {
     .book p {
