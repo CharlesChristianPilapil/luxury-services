@@ -1,6 +1,7 @@
 let navBar = document.querySelector('nav');
 let shouldStick = navBar.offsetTop;
 const scrollDiv = document.querySelector('.scrollDiv');
+
 let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
 const toggleSticky = () => {

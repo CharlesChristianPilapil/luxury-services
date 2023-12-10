@@ -63,12 +63,14 @@ header {
     position: relative;
     height: 70px;
     display: flex;
+    z-index: 2;
     gap: 1rem;
     justify-content: space-between;
     align-items: center;
     max-width: 1410px;
     padding: 1rem 2rem;
     margin: 0 auto;
+    transition: .2s ease-in-out;
     /* border: 1px solid red; */
 }
 
@@ -143,9 +145,12 @@ header {
 .bottom-nav {
     position: absolute;
     bottom: 0;
+    z-index: 2;
     width: 100%;
+    transition: .2s ease-in-out;
     background-color: var(--medium-dark);
 }
+
 
 .bottom-nav-wrapper {
     height: 60px;
@@ -441,7 +446,7 @@ header {
     display: flex;
     position: relative;
     justify-content: center;
-    z-index: 2;
+    z-index: 1;
 }
 
 .step-line {
@@ -1139,7 +1144,7 @@ footer .luxury-presence:hover:after {
     height: 100%;
     width: 70%;
     right: 0;
-    z-index: 2;
+    z-index: 3;
     transition: .3s ease-in-out;
     transform: translateX(100%);
 }
@@ -1235,7 +1240,7 @@ footer .luxury-presence:hover:after {
     position: absolute;
     height: 100%;
     width: 100%;
-    z-index: 1;
+    z-index: 2;
     background-color: rgb(161, 140, 94, .7);
     opacity: 0;
     visibility: hidden;

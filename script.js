@@ -124,3 +124,117 @@ document.addEventListener('click', (el) => {
     sideNav.classList.remove('active-nav');
   }
 });
+
+
+
+
+
+// const header = document.querySelector('header');
+// const bottomNav = document.querySelector('.bottom-nav');
+
+// const stickyNav = (e) => {
+//   const [el] = e;
+
+//   if(!el.isIntersecting) {
+//     bottomNav.style.position='fixed';
+//     bottomNav.style.top='0';
+//     bottomNav.style.bottom='auto';
+//     console.log(`check`);
+//   }
+
+//   else {
+//     bottomNav.style.position='absolute';
+//     bottomNav.style.top='auto';
+//     bottomNav.style.bottom='0';
+//   }
+// }
+
+// const headerObserver = new IntersectionObserver
+//   (stickyNav, {
+//     root: null,
+//     threshold: 0,
+//     rootMargin: '-60px',
+//   }
+// );
+
+// headerObserver.observe(header);
+
+
+
+const header = document.querySelector('header');
+const bottomNav = document.querySelector('.bottom-nav');
+const topNav = document.querySelector('.top-nav');
+
+
+let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+let isNavSticky = false;
+
+const stickyNav = (entries) => {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) {
+    stickNavs();
+  } else {
+    returnNav();
+  }
+};
+
+const stickNavs = () => {
+  bottomNav.style.position = 'fixed';
+  bottomNav.style.top = '0';
+  bottomNav.style.bottom = 'auto';
+
+  topNav.style.position = 'fixed';
+  topNav.style.top = '0';
+  topNav.style.backgroundColor = 'var(--dark)';
+
+  isNavSticky = true;
+}
+
+const returnNav = () => {
+  bottomNav.style.position = 'absolute';
+  bottomNav.style.top = 'auto';
+  bottomNav.style.bottom = '0';
+  bottomNav.style.transform = 'translateY(0)';
+
+  topNav.style.backgroundColor = 'transparent';
+  topNav.style.height = '70px';
+  topNav.style.position = 'relative';
+
+  isNavSticky = false;
+}
+
+
+const handleScroll = () => {
+  if (isNavSticky) {
+    const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollDirection = currentScrollTop > lastScrollTop ? 'down' : 'up';
+
+    // Your logic based on scroll direction here
+    console.log(`Scroll Direction: ${scrollDirection}`);
+
+    if(scrollDirection === 'up') {
+      bottomNav.style.transform = 'translateY(100px)';
+      topNav.style.transform = 'translateY(0)';
+    }
+
+    else {
+      bottomNav.style.transform = 'translateY(0)';
+      topNav.style.height = '100px';
+      topNav.style.transform = 'translateY(-70px)';
+    }
+
+    lastScrollTop = currentScrollTop;
+  }
+};
+
+const headerObserver = new IntersectionObserver(stickyNav, {
+  root: null,
+  threshold: 0,
+  rootMargin: '-60px',
+});
+
+headerObserver.observe(header);
+
+// Add event listener for scroll
+window.addEventListener('scroll', handleScroll);
