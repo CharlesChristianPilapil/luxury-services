@@ -1287,11 +1287,11 @@ footer .luxury-presence:hover:after {
     opacity: 1;
 }
 
-/* @media (prefers-reduced-motion) {
+@media (prefers-reduced-motion) {
     .start .lazy-load {
-        transition: none;
+        transition: .5s ease-in-out;
     }
-} */
+}
 
 @media (min-width: 540px) {
     .book p {
