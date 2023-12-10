@@ -780,10 +780,10 @@ header {
     border: 1px solid var(--light);
     background-color: transparent;
     cursor: pointer;
-    transition: .2s ease-in-out;
+    transition: 0.2s ease-in-out;
 }
 
-.work-with-us button:hover {
+.work-with-us-wrapper button:hover {
     background-color: var(--light);
     color: var(--medium-dark);
 }
@@ -1279,7 +1279,7 @@ footer .luxury-presence:hover:after {
 .start .lazy-load {
     opacity: 0;
     filter: blur(3px);
-    transition: 1s ease-in-out;
+    transition: 1s ease-in-out
 }
 
 .start .lazy-load.animate {
