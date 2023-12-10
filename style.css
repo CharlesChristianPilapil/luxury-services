@@ -222,6 +222,10 @@ header {
     font-size: 2rem;
 }
 
+.marketing-plan .drone {
+    width: 100%;
+}
+
 .swiper {
     margin-top: 1rem;
     max-width: 1410px;
